@@ -5,7 +5,16 @@ import torch.nn as nn
 import torch.nn.functional as F
 from torch import Tensor
 from torch.utils import model_zoo
-from torchvision.models.resnet import ResNet, Bottleneck, model_urls
+from torchvision.models.resnet import ResNet, Bottleneck
+from torchvision.models import resnet  # for pretrained weights
+
+model_urls = {
+    'resnet18': resnet.ResNet18_Weights.DEFAULT.url,
+    'resnet34': resnet.ResNet34_Weights.DEFAULT.url,
+    'resnet50': resnet.ResNet50_Weights.DEFAULT.url,
+    'resnet101': resnet.ResNet101_Weights.DEFAULT.url,
+    'resnet152': resnet.ResNet152_Weights.DEFAULT.url,
+}
 
 
 class ResNetWithoutFC(ResNet):
